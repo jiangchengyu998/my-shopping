@@ -57,6 +57,27 @@
 }
 
 .header {
-    height: 120px;
-    background-color: skyblue;
+     height: 120px;
+     background-color: skyblue;
+ }
+
+.header .search form {
+    margin-top: 42px;
+    font-size: 0;
+}
+
+.header .search input {
+    width: 508px;
+    height: 34px;
+    border: 1px solid #DD302D;
+}
+
+.header .search button {
+    width: 80px;
+    height: 36px;
+    background-color: #DD302D;
+    vertical-align: top;
+    background-image: url('../images/serch_icon.png');
+    background-repeat: no-repeat;
+    background-position: 28px 6px;
 }
