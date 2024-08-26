@@ -31,3 +31,11 @@
 
 ### background-position
 在 CSS 中，background-position 属性用于设置背景图像在元素中的初始位置
+
+```css
+.topbar-nav .list li {
+    float: left;
+}
+```
+### float
+浮动元素会从其所在容器的正常文档流中脱离，并在容器的左侧排列，紧靠容器的左边缘或前一个浮动元素的右侧。
