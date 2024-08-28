@@ -39,3 +39,14 @@
 ```
 ### float
 浮动元素会从其所在容器的正常文档流中脱离，并在容器的左侧排列，紧靠容器的左边缘或前一个浮动元素的右侧。
+
+```css
+.main-content .slide-nav li:hover {
+    background-color: #DD302D;
+}
+```
+### hover
+当鼠标悬停在 .slide-nav 元素内的 li 元素上时，这些 li 元素的背景颜色会变为 #DD302D（一种红色）
+:hover: 这是一个伪类，用于选择用户鼠标悬停时的元素。
+
+
