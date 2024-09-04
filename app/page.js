@@ -487,8 +487,24 @@ export default function HomePage() {
                             </div>
                         </li>
                     </ul>
-                    <div className="banner leftfix">2</div>
-                    <div className="slide-other leftfix">3</div>
+                    <div className="banner leftfix">
+                        <img src="/images/banner主图.png" alt=""/>
+                    </div>
+                    <div className="slide-other leftfix">
+                        <div className="message">
+                            <div className="title clearfix">
+                                <span className="leftfix">尚品快报</span>
+                                <a href="#" className="rightfix">更多&nbsp;&gt;</a>
+                            </div>
+                            <ul className="msg-list">
+                                <li><a href="#">[特惠] 毛衣+直筒裤才是YYDS</a></li>
+                                <li><a href="#">[特惠] 毛衣+直筒裤才是YYDS</a></li>
+                                <li><a href="#">[特惠] 毛衣+直筒裤才是YYDS</a></li>
+                                <li><a href="#">[特惠] 毛衣+直筒裤才是YYDS</a></li>
+                            </ul>
+                        </div>
+                        <div className="other-nav"></div>
+                    </div>
                 </div>
             </div>
         </>
