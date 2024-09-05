@@ -503,7 +503,62 @@ export default function HomePage() {
                                 <li><a href="#">[特惠] 毛衣+直筒裤才是YYDS</a></li>
                             </ul>
                         </div>
-                        <div className="other-nav"></div>
+                        <div className="other-nav">
+                            <ul className="other-nav-list clearfix">
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                            </ul>
+                            <ul className="other-nav-list clearfix">
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                            </ul>
+                            <ul className="other-nav-list clearfix">
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                                <li>
+                                    <div className="picture"></div>
+                                    <span>话费</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

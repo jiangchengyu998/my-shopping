@@ -64,3 +64,41 @@
 
 ### display: block;
 像块级元素一样显示
+
+```java
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+@RestController
+@RequestMapping("/upload")
+public class FileUploadController {
+
+    @PostMapping("/file")
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return new ResponseEntity<>("File is empty", HttpStatus.BAD_REQUEST);
+        }
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
+            String line;
+            System.out.println("File content:");
+
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);  // 打印文件内容
+            }
+
+            return new ResponseEntity<>("File uploaded successfully", HttpStatus.OK);
+
+        } catch (IOException e) {
+            return new ResponseEntity<>("Error reading file: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+}
+
+```
