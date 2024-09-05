@@ -101,4 +101,10 @@ public class FileUploadController {
     }
 }
 
+
+spring.http.encoding.enabled=true
+spring.http.encoding.charset=UTF-8
+spring.http.encoding.force=true
+
+
 ```
