@@ -105,6 +105,36 @@ public class FileUploadController {
 spring.http.encoding.enabled=true
 spring.http.encoding.charset=UTF-8
 spring.http.encoding.force=true
+#!/bin/bash
+
+# 定义需要排除的系统命名空间
+EXCLUDE_NAMESPACES="kube-system kube-public kube-node-lease"
+
+# 获取所有非系统命名空间
+namespaces=$(kubectl get namespaces -o jsonpath='{.items[*].metadata.name}' | tr ' ' '\n')
+
+echo "Checking for Deployments using secretKeyRef..."
+
+for ns in $namespaces; do
+  # 检查命名空间是否为系统命名空间
+  if [[ " $EXCLUDE_NAMESPACES " =~ " $ns " ]]; then
+    continue
+  fi
+  
+  echo "Namespace: $ns"
+  
+  # 获取当前命名空间中的所有部署
+  deployments=$(kubectl get deployments -n $ns -o jsonpath='{.items[*].metadata.name}')
+  
+  for deploy in $deployments; do
+    echo "  Checking Deployment: $deploy"
+    
+    # 检查Deployment的yaml输出中是否包含secretKeyRef
+    secret_key_ref=$(kubectl get deployment $deploy -n $ns -o yaml | grep -q 'secretKeyRef' && echo "Found" || echo "Not Found")
+    
+    echo "    secretKeyRef: $secret_key_ref"
+  done
+done
 
 
 ```
