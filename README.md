@@ -137,4 +137,8 @@ for ns in $namespaces; do
 done
 
 
+    update_time=$(kubectl get deployment $deploy -n $ns -o jsonpath='{.metadata.annotations.kubectl\.kubernetes\.io/last-applied-configuration}' | jq -r '.metadata.creationTimestamp // empty')
+
+
+
 ```
