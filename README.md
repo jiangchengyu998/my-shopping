@@ -64,6 +64,53 @@
 
 ### display: block;
 像块级元素一样显示
+import org.apache.tika.metadata.Metadata;
+import org.apache.tika.parser.txt.UniversalEncodingDetector;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.*;
+import java.nio.charset.Charset;
+
+@RestController
+public class FileUploadController {
+
+    @PostMapping("/upload")
+    public String handleFileUpload(@RequestParam("file") MultipartFile file) {
+        try {
+            // 自动检测文件编码
+            Charset detectedCharset = detectFileEncoding(file);
+            String originalEncoding = detectedCharset != null ? detectedCharset.name() : "UTF-8";
+
+            // 转换文件内容为 UTF-8
+            String fileContent = convertFileToUTF8(file, originalEncoding);
+            return fileContent;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "文件上传失败：" + e.getMessage();
+        }
+    }
+
+    private Charset detectFileEncoding(MultipartFile file) throws IOException {
+        UniversalEncodingDetector detector = new UniversalEncodingDetector();
+        try (InputStream input = file.getInputStream()) {
+            Metadata metadata = new Metadata();
+            return detector.detect(input, metadata);
+        }
+    }
+
+    private String convertFileToUTF8(MultipartFile file, String originalEncoding) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), originalEncoding))) {
+            StringBuilder content = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+            return new String(content.toString().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+        }
+    }
+}
 
 ```java
 import org.springframework.http.HttpStatus;
