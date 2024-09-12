@@ -64,6 +64,17 @@
 
 ### display: block;
 像块级元素一样显示
+
+# 设置Java环境变量
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
+
+# 设置Maven环境变量
+export MAVEN_HOME=/usr/share/maven
+export PATH=$MAVEN_HOME/bin:$PATH
+
+
+
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.txt.UniversalEncodingDetector;
 import org.springframework.web.bind.annotation.*;
